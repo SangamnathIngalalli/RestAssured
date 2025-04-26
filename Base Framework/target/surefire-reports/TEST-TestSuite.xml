@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="4.489" tests="4" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\Administrator\OneDrive\my\TEST LEARN\TEST LEARN\project\rest assured\nike\Base Framework\target\test-classes;C:\Users\Administrator\OneDrive\my\TEST LEARN\TEST LEARN\project\rest assured\nike\Base Framework\target\classes;C:\Users\Administrator\.m2\repository\io\rest-assured\rest-assured\5.3.0\rest-assured-5.3.0.jar;C:\Users\Administrator\.m2\repository\org\apache\groovy\groovy\4.0.6\groovy-4.0.6.jar;C:\Users\Administrator\.m2\repository\org\apache\groovy\groovy-xml\4.0.6\groovy-xml-4.0.6.jar;C:\Users\Administrator\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\Administrator\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\Administrator\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Administrator\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\Administrator\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\Administrator\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\Administrator\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\Administrator\.m2\repository\io\rest-assured\json-path\5.3.0\json-path-5.3.0.jar;C:\Users\Administrator\.m2\repository\org\apache\groovy\groovy-json\4.0.6\groovy-json-4.0.6.jar;C:\Users\Administrator\.m2\repository\io\rest-assured\rest-assured-common\5.3.0\rest-assured-common-5.3.0.jar;C:\Users\Administrator\.m2\repository\io\rest-assured\xml-path\5.3.0\xml-path-5.3.0.jar;C:\Users\Administrator\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\Administrator\.m2\repository\org\testng\testng\7.7.1\testng-7.7.1.jar;C:\Users\Administrator\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\Administrator\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\Administrator\.m2\repository\org\webjars\jquery\3.6.1\jquery-3.6.1.jar;C:\Users\Administrator\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.2\jackson-databind-2.15.2.jar;C:\Users\Administrator\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.2\jackson-annotations-2.15.2.jar;C:\Users\Administrator\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.2\jackson-core-2.15.2.jar;C:\Users\Administrator\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
+    <property name="sun.java.command" value="C:\Users\Administrator\AppData\Local\Temp\surefire12759674164032212863\surefirebooter-20250425133117903_3.jar C:\Users\Administrator\AppData\Local\Temp\surefire12759674164032212863 2025-04-25T13-31-16_573-jvmRun1 surefire-20250425133117903_1tmp surefire_0-20250425133117903_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\Administrator\OneDrive\my\TEST LEARN\TEST LEARN\project\rest assured\nike\Base Framework\target\test-classes;C:\Users\Administrator\OneDrive\my\TEST LEARN\TEST LEARN\project\rest assured\nike\Base Framework\target\classes;C:\Users\Administrator\.m2\repository\io\rest-assured\rest-assured\5.3.0\rest-assured-5.3.0.jar;C:\Users\Administrator\.m2\repository\org\apache\groovy\groovy\4.0.6\groovy-4.0.6.jar;C:\Users\Administrator\.m2\repository\org\apache\groovy\groovy-xml\4.0.6\groovy-xml-4.0.6.jar;C:\Users\Administrator\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\Administrator\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\Administrator\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Administrator\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\Administrator\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\Administrator\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\Administrator\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\Administrator\.m2\repository\io\rest-assured\json-path\5.3.0\json-path-5.3.0.jar;C:\Users\Administrator\.m2\repository\org\apache\groovy\groovy-json\4.0.6\groovy-json-4.0.6.jar;C:\Users\Administrator\.m2\repository\io\rest-assured\rest-assured-common\5.3.0\rest-assured-common-5.3.0.jar;C:\Users\Administrator\.m2\repository\io\rest-assured\xml-path\5.3.0\xml-path-5.3.0.jar;C:\Users\Administrator\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\Administrator\.m2\repository\org\testng\testng\7.7.1\testng-7.7.1.jar;C:\Users\Administrator\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\Administrator\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\Administrator\.m2\repository\org\webjars\jquery\3.6.1\jquery-3.6.1.jar;C:\Users\Administrator\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.2\jackson-databind-2.15.2.jar;C:\Users\Administrator\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.2\jackson-annotations-2.15.2.jar;C:\Users\Administrator\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.2\jackson-core-2.15.2.jar;C:\Users\Administrator\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Administrator"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-01-21"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-21"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\Administrator\OneDrive\my\TEST LEARN\TEST LEARN\project\rest assured\nike\Base Framework"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\Administrator\AppData\Local\Temp\surefire12759674164032212863\surefirebooter-20250425133117903_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.6+8-LTS-188"/>
+    <property name="user.name" value="Administrator"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\Administrator\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\ADMINI~1\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.6"/>
+    <property name="user.dir" value="C:\Users\Administrator\OneDrive\my\TEST LEARN\TEST LEARN\project\rest assured\nike\Base Framework"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Adoptium\jdk-21.0.6.7-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-21\bin;C:\Program Files\maven\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\npm;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.6+8-LTS-188"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testCreateUser" classname="com.reqres.tests.ReqresApiTests" time="2.277">
+    <system-out><![CDATA[Request method:	POST
+Request URI:	https://reqres.in/api/users
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "id": null,
+    "email": null,
+    "first_name": null,
+    "last_name": null,
+    "avatar": null,
+    "name": "John Doe",
+    "job": "Software Engineer"
+}
+HTTP/1.1 201 Created
+Date: Fri, 25 Apr 2025 08:01:21 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 156
+Connection: keep-alive
+Cf-Ray: 935c4fda68e4c167-BLR
+Server: cloudflare
+Report-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1745568081&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=oAouy2rJTy%2BdBzr%2Fa6WnzP0PN6dsQ6c25Cmmo2s8lkM%3D"}]}
+Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1745568081&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=oAouy2rJTy%2BdBzr%2Fa6WnzP0PN6dsQ6c25Cmmo2s8lkM%3D
+Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Etag: W/"9c-bVeq/HG1U34OymSrsTYSWAHGuPY"
+Via: 1.1 vegur
+Cf-Cache-Status: DYNAMIC
+server-timing: cfL4;desc="?proto=TCP&rtt=13951&min_rtt=13924&rtt_var=5241&sent=7&recv=7&lost=0&retrans=0&sent_bytes=3109&recv_bytes=915&delivery_rate=308532&cwnd=252&unsent_bytes=0&cid=49524489338f12f7&ts=420&x=0"
+
+{
+    "id": "42",
+    "email": null,
+    "first_name": null,
+    "last_name": null,
+    "avatar": null,
+    "name": "John Doe",
+    "job": "Software Engineer",
+    "createdAt": "2025-04-25T08:01:21.273Z"
+}
+]]></system-out>
+    <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+  </testcase>
+  <testcase name="testDeleteUser" classname="com.reqres.tests.ReqresApiTests" time="0.399">
+    <system-out><![CDATA[Request method:	DELETE
+Request URI:	https://reqres.in/api/users/2
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 204 No Content
+Date: Fri, 25 Apr 2025 08:01:22 GMT
+Connection: keep-alive
+Cf-Ray: 935c4fe07d4ec46e-BLR
+Server: cloudflare
+Report-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1745568082&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=zU5pPhJrEY4SICJgV4LQJdgpKaYfd%2FfCCmNzO61SovQ%3D"}]}
+Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1745568082&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=zU5pPhJrEY4SICJgV4LQJdgpKaYfd%2FfCCmNzO61SovQ%3D
+Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Etag: W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"
+Via: 1.1 vegur
+Cf-Cache-Status: DYNAMIC
+server-timing: cfL4;desc="?proto=TCP&rtt=9943&min_rtt=9934&rtt_var=3745&sent=5&recv=6&lost=0&retrans=0&sent_bytes=3109&recv_bytes=781&delivery_rate=429042&cwnd=252&unsent_bytes=0&cid=00d27c1861c8e516&ts=336&x=0"
+]]></system-out>
+  </testcase>
+  <testcase name="testGetUser" classname="com.reqres.tests.ReqresApiTests" time="0.126">
+    <system-out><![CDATA[Request method:	GET
+Request URI:	https://reqres.in/api/users/2
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Fri, 25 Apr 2025 08:01:22 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Content-Encoding: gzip
+Cf-Ray: 935c4fe2d87920c5-BLR
+Report-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1745558023&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=82MDLFh1ocsV7Wvg%2BKbGFplazK9z0l6cLlvVbtnpJN8%3D"}]}
+Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1745558023&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=82MDLFh1ocsV7Wvg%2BKbGFplazK9z0l6cLlvVbtnpJN8%3D
+Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Etag: W/"152-ApQgGHL6RKwaebFlrPCYPBO1xHg"
+Via: 1.1 vegur
+Cache-Control: max-age=14400
+Cf-Cache-Status: HIT
+Age: 2313
+Vary: Accept-Encoding
+Server: cloudflare
+server-timing: cfL4;desc="?proto=TCP&rtt=11772&min_rtt=11411&rtt_var=3919&sent=5&recv=6&lost=0&retrans=0&sent_bytes=3109&recv_bytes=778&delivery_rate=304055&cwnd=252&unsent_bytes=0&cid=df6b1220ad32dd2d&ts=32&x=0"
+
+{
+    "data": {
+        "id": 2,
+        "email": "janet.weaver@reqres.in",
+        "first_name": "Janet",
+        "last_name": "Weaver",
+        "avatar": "https://reqres.in/img/faces/2-image.jpg"
+    },
+    "support": {
+        "url": "https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral",
+        "text": "Tired of writing endless social media content? Let Content Caddy generate it for you."
+    }
+}
+]]></system-out>
+  </testcase>
+  <testcase name="testUpdateUser" classname="com.reqres.tests.ReqresApiTests" time="0.406">
+    <system-out><![CDATA[Request method:	PUT
+Request URI:	https://reqres.in/api/users/2
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "id": null,
+    "email": null,
+    "first_name": null,
+    "last_name": null,
+    "avatar": null,
+    "name": "John Doe Updated",
+    "job": "Senior Software Engineer"
+}
+HTTP/1.1 200 OK
+Date: Fri, 25 Apr 2025 08:01:22 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Content-Encoding: gzip
+Cf-Ray: 935c4fe3bd61ea32-BLR
+Report-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1745568082&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=zU5pPhJrEY4SICJgV4LQJdgpKaYfd%2FfCCmNzO61SovQ%3D"}]}
+Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1745568082&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=zU5pPhJrEY4SICJgV4LQJdgpKaYfd%2FfCCmNzO61SovQ%3D
+Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Etag: W/"ab-OYvyZVqAJGW/MSd87PB21UJvPmk"
+Via: 1.1 vegur
+Cf-Cache-Status: DYNAMIC
+Vary: Accept-Encoding
+Server: cloudflare
+server-timing: cfL4;desc="?proto=TCP&rtt=14228&min_rtt=13630&rtt_var=4648&sent=5&recv=6&lost=0&retrans=0&sent_bytes=3109&recv_bytes=931&delivery_rate=258966&cwnd=252&unsent_bytes=0&cid=10287f03ece43ab3&ts=334&x=0"
+
+{
+    "id": null,
+    "email": null,
+    "first_name": null,
+    "last_name": null,
+    "avatar": null,
+    "name": "John Doe Updated",
+    "job": "Senior Software Engineer",
+    "updatedAt": "2025-04-25T08:01:22.768Z"
+}
+]]></system-out>
+  </testcase>
+</testsuite>

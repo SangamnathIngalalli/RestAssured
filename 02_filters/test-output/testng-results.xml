@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-04-25T22:40:58 IST" name="Default suite" finished-at="2025-04-25T22:41:00 IST" duration-ms="2353">
+    <groups>
+    </groups>
+    <test started-at="2025-04-25T22:40:58 IST" name="Default test" finished-at="2025-04-25T22:41:00 IST" duration-ms="2353">
+      <class name="com.reqres.tests.ReqresApiTests">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.reqres.tests.ReqresApiTests@4fb61f4a]" started-at="2025-04-25T22:40:58 IST" name="setup" finished-at="2025-04-25T22:40:59 IST" duration-ms="563" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testGetUser()[pri:0, instance:com.reqres.tests.ReqresApiTests@4fb61f4a]" started-at="2025-04-25T22:40:59 IST" name="testGetUser" finished-at="2025-04-25T22:41:00 IST" duration-ms="1746" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetUser -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.reqres.tests.ReqresApiTests@4fb61f4a]" started-at="2025-04-25T22:41:00 IST" name="tearDown" finished-at="2025-04-25T22:41:00 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.reqres.tests.ReqresApiTests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

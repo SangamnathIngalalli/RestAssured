@@ -1,0 +1,3 @@
+com\reqres\tests\ReqresApiTests.class
+com\reqres\models\User.class
+com\reqres\tests\BaseTest.class
