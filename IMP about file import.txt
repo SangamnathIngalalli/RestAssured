@@ -1,0 +1,7 @@
+step 1: in desktop create folder called "project"
+
+step 2: git pull in it
+
+step 3: in ecplise work space should be project
+
+step 4: import which maven project u need to work now eg: base_framwork

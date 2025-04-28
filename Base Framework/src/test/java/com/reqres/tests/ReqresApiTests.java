@@ -1,8 +1,5 @@
 package com.reqres.tests;
 
-
-import com.reqres.filters.CustomLoggingFilter;
-import com.reqres.filters.RequestResponseLogger;
 import com.reqres.models.User;
 import com.reqres.utils.JsonUtils;
 import io.restassured.response.Response;
@@ -18,13 +15,11 @@ public class ReqresApiTests extends BaseTest {
         
         Response response = given()
                 .spec(getRequestSpec())
-               // .filters(RequestResponseLogger.logHeadersOnly())
-                .filters(CustomLoggingFilter.logHeadersOnly())  // Customize as per your need (logBodyOnly, logAll, etc.)
                 .when()
-                .get("/users/2")
+                	.get("/users/2")
                 .then()
-                .extract()
-                .response();
+                	.extract()
+                	.response();
 
         softAssert.assertEquals(response.getStatusCode(), 200, "Status code should be 200");
         
@@ -42,92 +37,4 @@ public class ReqresApiTests extends BaseTest {
    
         softAssert.assertAll();
     }
-/*
-    @Test
-    public void testCreateUser() throws Exception {
-        SoftAssert softAssert = new SoftAssert();
-        
-        User newUser = new User();
-        newUser.setName("John Doe");
-        newUser.setJob("Software Engineer");
-
-        String requestBody = JsonUtils.getObjectMapper().writeValueAsString(newUser);
-        System.out.println("Request Body: " + requestBody);
-
-        Response response = given()
-                .spec(getRequestSpec())
-                .filters(RequestResponseLogger.logBodyOnly())
-                .body(requestBody)
-                .when()
-                .post("/users")
-                .then()
-                .extract()
-                .response();
-
-        softAssert.assertEquals(response.getStatusCode(), 201, "Status code should be 201");
-
-        // Validate response against schema
-        SchemaValidator.validateResponse(response.asString(), "/schemas/create-user-schema.json");
-
-        User createdUser = JsonUtils.getObjectMapper().readValue(response.asString(), User.class);
-        softAssert.assertEquals(createdUser.getName(), "John Doe", "Name should match");
-        softAssert.assertEquals(createdUser.getJob(), "Software Engineer", "Job should match");
-        softAssert.assertNotNull(createdUser.getId(), "ID should not be null");
-        softAssert.assertNotNull(createdUser.getCreatedAt(), "CreatedAt should not be null");
-        
-        softAssert.assertAll();
-    }
-
-    @Test
-    public void testUpdateUser() throws Exception {
-        SoftAssert softAssert = new SoftAssert();
-        
-        User updatedUser = new User();
-        updatedUser.setName("John Doe Updated");
-        updatedUser.setJob("Senior Software Engineer");
-
-        String requestBody = JsonUtils.getObjectMapper().writeValueAsString(updatedUser);
-        System.out.println("Request Body: " + requestBody);
-
-        Response response = given()
-                .spec(getRequestSpec())
-                .filters(RequestResponseLogger.logRequestHeadersResponseBody())
-                .body(requestBody)
-                .when()
-                .put("/users/2")
-                .then()
-                .extract()
-                .response();
-
-        softAssert.assertEquals(response.getStatusCode(), 200, "Status code should be 200");
-
-        // Validate response against schema
-        SchemaValidator.validateResponse(response.asString(), "/schemas/update-user-schema.json");
-
-        User user = JsonUtils.getObjectMapper().readValue(response.asString(), User.class);
-        softAssert.assertEquals(user.getName(), "John Doe Updated", "Name should be updated");
-        softAssert.assertEquals(user.getJob(), "Senior Software Engineer", "Job should be updated");
-        softAssert.assertNotNull(user.getUpdatedAt(), "UpdatedAt should not be null");
-        
-        softAssert.assertAll();
-    }
-
-    @Test
-    public void testDeleteUser() {
-        SoftAssert softAssert = new SoftAssert();
-        
-        Response response = given()
-                .spec(getRequestSpec())
-                .filters(RequestResponseLogger.logAll())
-                .when()
-                .delete("/users/2")
-                .then()
-                .extract()
-                .response();
-
-        softAssert.assertEquals(response.getStatusCode(), 204, "Status code should be 204");
-        softAssert.assertAll();
-        
-       
-    } */
 } 
