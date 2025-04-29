@@ -1,0 +1,21 @@
+package retry;
+
+import org.testng.IRetryAnalyzer;
+import org.testng.ITestResult;
+
+public class NetworkRetryAnalyzer implements IRetryAnalyzer {
+
+    private int retryCount = 0;
+    private static final int maxRetryCount = 2; // maximum retries
+
+    @Override
+    public boolean retry(ITestResult result) {
+        if (retryCount < maxRetryCount) {
+            retryCount++;
+            // Attach retry count info to the test result (for logging later)
+            result.setAttribute("RETRY_COUNT", retryCount);
+            return true;
+        }
+        return false;
+    }
+}

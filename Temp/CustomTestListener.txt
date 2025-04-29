@@ -1,0 +1,41 @@
+package listener;
+
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+public class CustomTestListener implements ITestListener {
+
+    @Override
+    public void onTestFailure(ITestResult result) {
+        Object retryAttribute = result.getAttribute("RETRY_COUNT");
+
+        if (retryAttribute != null) {
+            int retries = (int) retryAttribute;
+            System.out.println("[RETRY] Test '" + result.getName() + 
+                               "' failed after " + retries + " retries.");
+        } else {
+            System.out.println("[FAIL] Test '" + result.getName() + "' failed without retries.");
+        }
+    }
+
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        System.out.println("[PASS] Test '" + result.getName() + "' passed.");
+    }
+
+    @Override
+    public void onTestStart(ITestResult result) {
+        System.out.println("[START] Test '" + result.getName() + "' is starting.");
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        System.out.println("[SKIP] Test '" + result.getName() + "' was skipped.");
+    }
+
+    @Override
+    public void onStart(ITestContext context) { }
+    @Override
+    public void onFinish(ITestContext context) { }
+}
