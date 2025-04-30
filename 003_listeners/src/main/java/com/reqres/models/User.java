@@ -2,9 +2,7 @@ package com.reqres.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
 
-@Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
     @JsonProperty("data")
@@ -16,13 +14,19 @@ public class User {
     @JsonProperty("how_to_get_one")
     private String howToGetOne;
 
-    public boolean hasError() {
-        return error != null && !error.isEmpty();
+    public UserData getUserData() {
+        return userData;
     }
-}
 
-@Data
-class Support {
-    private String url;
-    private String text;
-}
+    public String getError() {
+        return error;
+    }
+
+    public String getHowToGetOne() {
+        return howToGetOne;
+    }
+
+    public boolean hasError() {
+        return error != null;
+    }
+} 

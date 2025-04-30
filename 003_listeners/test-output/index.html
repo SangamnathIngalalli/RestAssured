@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                    <span class="method-stats">2 methods, 2 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -106,21 +106,12 @@
                         <a href="#" panel-name="suite-Reqres_API_Test_Suite" title="com.reqres.tests.ReqresApiTests" class="method navigator-link" hash-for-method="testGetUserFail">testGetUserFail</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content failed suite-Reqres_API_Test_Suite -->
-                  </li>
-                  <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Reqres_API_Test_Suite" class="hide-methods passed suite-Reqres_API_Test_Suite"> (hide)</a> <!-- hide-methods passed suite-Reqres_API_Test_Suite -->
-                      <a href="#" panel-name="suite-Reqres_API_Test_Suite" class="show-methods passed suite-Reqres_API_Test_Suite"> (show)</a> <!-- show-methods passed suite-Reqres_API_Test_Suite -->
-                    </span>
-                    <div class="method-list-content passed suite-Reqres_API_Test_Suite">
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-Reqres_API_Test_Suite" title="com.reqres.tests.ReqresApiTests" class="method navigator-link" hash-for-method="testGetUserPass">testGetUserPass</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Reqres_API_Test_Suite -->
+                    </div> <!-- method-list-content failed suite-Reqres_API_Test_Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -143,8 +134,23 @@
                   <a name="testGetUserFail">
                   </a> <!-- testGetUserFail -->
                   <span class="method-name">testGetUserFail</span>
-                  <div class="stack-trace">com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field &quot;error&quot; (class com.reqres.models.User), not marked as ignorable (2 known properties: &quot;data&quot;, &quot;support&quot;])
- at [Source: (String)&quot;{&quot;error&quot;:&quot;Missing API key.&quot;,&quot;how_to_get_one&quot;:&quot;https://reqres.in/signup&quot;}&quot;; line: 1, column: 11] (through reference chain: com.reqres.models.User[&quot;error&quot;])
+                  <div class="stack-trace">java.lang.RuntimeException: API Error: Missing API key.. https://reqres.in/signup
+	at com.reqres.services.ApiService.getUserObjectById(ApiService.java:60)
+	at com.reqres.tests.ReqresApiTests.testGetUserFail(ReqresApiTests.java:35)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 10 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUserPass">
+                  </a> <!-- testGetUserPass -->
+                  <span class="method-name">testGetUserPass</span>
+                  <div class="stack-trace">com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field &quot;avatar&quot; (class com.reqres.models.UserData), not marked as ignorable (4 known properties: &quot;first_name&quot;, &quot;id&quot;, &quot;email&quot;, &quot;last_name&quot;])
+ at [Source: (String)&quot;{&quot;data&quot;:{&quot;id&quot;:2,&quot;email&quot;:&quot;janet.weaver@reqres.in&quot;,&quot;first_name&quot;:&quot;Janet&quot;,&quot;last_name&quot;:&quot;Weaver&quot;,&quot;avatar&quot;:&quot;https://reqres.in/img/faces/2-image.jpg&quot;},&quot;support&quot;:{&quot;url&quot;:&quot;https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral&quot;,&quot;text&quot;:&quot;Tired of writing endless social media content? Let Content Caddy generate it for you.&quot;}}&quot;; line: 1, column: 102] (through reference chain: com.reqres.models.User[&quot;data&quot;]-&gt;com.reqres.models.UserData[&quot;avatar&quot;])
 	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
 	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1138)
 	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:2224)
@@ -152,11 +158,15 @@
 	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1687)
 	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:320)
 	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:314)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
 	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
 	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4825)
 	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3772)
 	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3740)
-	at com.reqres.tests.ReqresApiTests.testGetUserFail(ReqresApiTests.java:59)
+	at com.reqres.services.ApiService.getUserObjectById(ApiService.java:57)
+	at com.reqres.tests.ReqresApiTests.testGetUserPass(ReqresApiTests.java:21)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
@@ -166,21 +176,6 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Reqres_API_Test_Suite-class-failed -->
-          <div class="suite-Reqres_API_Test_Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.reqres.tests.ReqresApiTests</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="testGetUserPass">
-                  </a> <!-- testGetUserPass -->
-                  <span class="method-name">testGetUserPass</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Reqres_API_Test_Suite-class-passed -->
         </div> <!-- panel Reqres_API_Test_Suite -->
         <div panel-name="test-xml-Reqres_API_Test_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -240,16 +235,16 @@ data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testGetUserFail')
 data.setCell(0, 2, 'com.reqres.tests.ReqresApiTests')
-data.setCell(0, 3, 1325);
+data.setCell(0, 3, 2283);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'testGetUserPass')
 data.setCell(1, 2, 'com.reqres.tests.ReqresApiTests')
-data.setCell(1, 3, 1263);
+data.setCell(1, 3, 2078);
 window.suiteTableData['Reqres_API_Test_Suite']= { tableData: data, tableDiv: 'times-div-Reqres_API_Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <span class="suite-total-time">Total running time: 4 seconds</span>
               <div id="times-div-Reqres_API_Test_Suite">
               </div> <!-- times-div-Reqres_API_Test_Suite -->
             </div> <!-- times-div -->
@@ -285,22 +280,24 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testGetUserPass</span>
-                <span class="method-start">401 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUserFail</span>
+                <span class="method-start">661 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">testGetUserFail</span>
-                <span class="method-start">401 ms</span>
+                <span class="method-name">testGetUserPass</span>
+                <span class="method-start">661 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">1669 ms</span>
+                <span class="method-start">2746 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">1730 ms</span>
+                <span class="method-start">2946 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

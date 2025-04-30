@@ -2,31 +2,43 @@ package com.reqres.tests;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.asserts.SoftAssert;
+
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
+import com.reqres.config.Config;
 
-public class BaseTest {
-    private static final ThreadLocal<RequestSpecification> requestSpecThreadLocal = new ThreadLocal<>();
+public abstract class BaseTest {
 
-    protected RequestSpecification getRequestSpec() {
-        return requestSpecThreadLocal.get();
-    }
+	private static final ThreadLocal<RequestSpecification> requestSpecThreadLocal = new ThreadLocal<>();
+	private static final ThreadLocal<SoftAssert> softAssertThreadLocal = new ThreadLocal<>();
 
-    @BeforeMethod  // Runs before EVERY test method
-    public void setup() {
-        RestAssured.baseURI = "https://reqres.in/api";
-        
-        RequestSpecBuilder builder = new RequestSpecBuilder()
-                .setContentType(ContentType.JSON);
-             
-        
-        requestSpecThreadLocal.set(builder.build());
-    }
+	protected SoftAssert getSoftAssert() {
+		return softAssertThreadLocal.get();
+	}
 
-    @AfterMethod  // Runs after EVERY test method (cleans up ThreadLocal)
-    public void tearDown() {
-        requestSpecThreadLocal.remove();
-    }
-} 
+	protected void assertAll() {
+		getSoftAssert().assertAll();
+	}
+
+	protected RequestSpecification getRequestSpec() {
+		return requestSpecThreadLocal.get();
+	}
+
+	@BeforeMethod // Runs before EVERY test method
+	public void setup() {
+		softAssertThreadLocal.set(new SoftAssert());
+		RequestSpecBuilder builder = new RequestSpecBuilder()
+				.setBaseUri(Config.getBaseURI())
+				.setContentType(ContentType.JSON);
+		requestSpecThreadLocal.set(builder.build());
+	}
+
+	@AfterMethod // Runs after EVERY test method (cleans up ThreadLocal)
+	public void tearDown() {
+		requestSpecThreadLocal.remove();
+		softAssertThreadLocal.remove();
+	}
+}

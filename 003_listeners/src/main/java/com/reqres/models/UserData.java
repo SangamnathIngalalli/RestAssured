@@ -1,9 +1,7 @@
 package com.reqres.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
 
-@Data
 public class UserData {
     private int id;
     
@@ -13,4 +11,20 @@ public class UserData {
     @JsonProperty("last_name")
     private String last_name;
     private String email;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 } 

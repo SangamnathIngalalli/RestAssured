@@ -3,68 +3,35 @@ package com.reqres.tests;
 import com.reqres.models.User;
 import com.reqres.utils.JsonUtils;
 import io.restassured.response.Response;
+import com.reqres.services.ApiService;
+
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import static io.restassured.RestAssured.given;
 
 public class ReqresApiTests extends BaseTest {
 
-    @Test
-    public void testGetUserPass() throws Exception {
-        SoftAssert softAssert = new SoftAssert();
-        
-        Response response = given()
-                .spec(getRequestSpec())
-                .when()
-                	.get("/users/2")
-                .then()
-                	.extract()
-                	.response();
+	private final ApiService apiService = ApiService.getInstance();
 
-        softAssert.assertEquals(response.getStatusCode(), 200, "Status code should be 200");
-        
-        // Validate response against schema
-   //     SchemaValidator.validateResponse(response.asString(), "/schemas/user-schema.json");
+	@Test
+	public void testGetUserPass() throws Exception {
+		Response response = apiService.getUserById(2, getRequestSpec());
 
-     User user = JsonUtils.getObjectMapper().readValue(response.asString(), User.class);
-   softAssert.assertEquals(user.getUserData().getId(), 2, "User ID should be 2");
-   softAssert.assertEquals(user.getUserData().getEmail(), "janet.weaver@reqres.in", "Email should match");
-   softAssert.assertEquals(user.getUserData().getFirst_name(), "Janet", "First name should match");
-   softAssert.assertEquals(user.getUserData().getLast_name(), "Weaver", "Last name should match");
-   
-   
-   
-   
-        softAssert.assertAll();
-    }
-    
-    
-    @Test
-    public void testGetUserFail() throws Exception {
-        SoftAssert softAssert = new SoftAssert();
-        
-        Response response = given()
-                .spec(getRequestSpec())
-                .when()
-                	.get("/uses/2")
-                .then()
-                	.extract()
-                	.response();
+		getSoftAssert().assertEquals(response.getStatusCode(), 200, "Status code should be 200");
+		
+		User user = apiService.getUserObjectById(2, getRequestSpec());
+		getSoftAssert().assertFalse(user.hasError(), "Should not have error response");
+		getSoftAssert().assertEquals(user.getUserData().getId(), 2, "User ID should be 2");
+		getSoftAssert().assertEquals(user.getUserData().getEmail(), "janet.weaver@reqres.in", "Email should match");
+		getSoftAssert().assertEquals(user.getUserData().getFirst_name(), "Janet", "First name should match");
+		getSoftAssert().assertEquals(user.getUserData().getLast_name(), "Weaver", "Last name should match");
 
-        softAssert.assertEquals(response.getStatusCode(), 200, "Status code should be 200");
-        
-        // Validate response against schema
-   //     SchemaValidator.validateResponse(response.asString(), "/schemas/user-schema.json");
+		assertAll();
+	}
 
-     User user = JsonUtils.getObjectMapper().readValue(response.asString(), User.class);
-   softAssert.assertEquals(user.getUserData().getId(), 2, "User ID should be 2");
-   softAssert.assertEquals(user.getUserData().getEmail(), "janet.weaver@reqres.in", "Email should match");
-   softAssert.assertEquals(user.getUserData().getFirst_name(), "Janet", "First name should match");
-   softAssert.assertEquals(user.getUserData().getLast_name(), "Weaver", "Last name should match");
-   
-   
-   
-   
-        softAssert.assertAll();
-    }
-} 
+	@Test()
+	public void testGetUserFail() throws Exception {
+		Response response = apiService.getUserById(-1, getRequestSpec());
+		getSoftAssert().assertEquals(response.getStatusCode(), 200, "Status code should be 200");
+		apiService.getUserObjectById(-1, getRequestSpec());
+	}
+}

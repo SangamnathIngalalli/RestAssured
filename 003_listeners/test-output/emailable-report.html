@@ -9,12 +9,19 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Reqres API Test Suite</th></tr>
-<tr><td><a href="#t0">API Tests</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">1,761</td><td></td><td></td></tr>
+<tr><td><a href="#t0">API Tests</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">2,996</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Reqres API Test Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">API Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.reqres.tests.ReqresApiTests</td><td><a href="#m0">testGetUserFail</a></td><td rowspan="1">1745852439857</td><td rowspan="1">1325</td></tr><tr><th colspan="4">API Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.reqres.tests.ReqresApiTests</td><td><a href="#m1">testGetUserPass</a></td><td rowspan="1">1745852439857</td><td rowspan="1">1263</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Reqres API Test Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">API Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">com.reqres.tests.ReqresApiTests</td><td><a href="#m0">testGetUserFail</a></td><td rowspan="1">1745985390427</td><td rowspan="1">2283</td></tr><tr class="failedeven"><td><a href="#m1">testGetUserPass</a></td><td rowspan="1">1745985390427</td><td rowspan="1">2078</td></tr></tbody>
 </table>
-<h2>API Tests</h2><h3 id="m0">com.reqres.tests.ReqresApiTests#testGetUserFail</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field &quot;error&quot; (class com.reqres.models.User), not marked as ignorable (2 known properties: &quot;data&quot;, &quot;support&quot;])
- at [Source: (String)&quot;{&quot;error&quot;:&quot;Missing API key.&quot;,&quot;how_to_get_one&quot;:&quot;https://reqres.in/signup&quot;}&quot;; line: 1, column: 11] (through reference chain: com.reqres.models.User[&quot;error&quot;])
+<h2>API Tests</h2><h3 id="m0">com.reqres.tests.ReqresApiTests#testGetUserFail</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.RuntimeException: API Error: Missing API key.. https://reqres.in/signup
+	at com.reqres.services.ApiService.getUserObjectById(ApiService.java:60)
+	at com.reqres.tests.ReqresApiTests.testGetUserFail(ReqresApiTests.java:35)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 10 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.reqres.tests.ReqresApiTests#testGetUserPass</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field &quot;avatar&quot; (class com.reqres.models.UserData), not marked as ignorable (4 known properties: &quot;first_name&quot;, &quot;id&quot;, &quot;email&quot;, &quot;last_name&quot;])
+ at [Source: (String)&quot;{&quot;data&quot;:{&quot;id&quot;:2,&quot;email&quot;:&quot;janet.weaver@reqres.in&quot;,&quot;first_name&quot;:&quot;Janet&quot;,&quot;last_name&quot;:&quot;Weaver&quot;,&quot;avatar&quot;:&quot;https://reqres.in/img/faces/2-image.jpg&quot;},&quot;support&quot;:{&quot;url&quot;:&quot;https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral&quot;,&quot;text&quot;:&quot;Tired of writing endless social media content? Let Content Caddy generate it for you.&quot;}}&quot;; line: 1, column: 102] (through reference chain: com.reqres.models.User[&quot;data&quot;]-&gt;com.reqres.models.UserData[&quot;avatar&quot;])
 	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
 	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1138)
 	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:2224)
@@ -22,15 +29,18 @@
 	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1687)
 	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:320)
 	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:314)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
 	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
 	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4825)
 	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3772)
 	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3740)
-	at com.reqres.tests.ReqresApiTests.testGetUserFail(ReqresApiTests.java:59)
+	at com.reqres.services.ApiService.getUserObjectById(ApiService.java:57)
+	at com.reqres.tests.ReqresApiTests.testGetUserPass(ReqresApiTests.java:21)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
 ... Removed 10 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.reqres.tests.ReqresApiTests#testGetUserPass</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

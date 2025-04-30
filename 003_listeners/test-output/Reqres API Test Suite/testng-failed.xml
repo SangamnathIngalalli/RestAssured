@@ -11,6 +11,7 @@
           <include name="tearDown"/>
           <include name="setup"/>
           <include name="testGetUserFail"/>
+          <include name="testGetUserPass"/>
         </methods>
       </class> <!-- com.reqres.tests.ReqresApiTests -->
     </classes>
