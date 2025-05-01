@@ -1,57 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="0" failed="2" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-30T09:26:29 IST" name="Reqres API Test Suite" finished-at="2025-04-30T09:26:32 IST" duration-ms="2996">
+  <suite started-at="2025-05-01T16:22:15 IST" name="Reqres API Test Suite" finished-at="2025-05-01T16:22:18 IST" duration-ms="2892">
     <groups>
     </groups>
-    <test started-at="2025-04-30T09:26:29 IST" name="API Tests" finished-at="2025-04-30T09:26:32 IST" duration-ms="2996">
+    <test started-at="2025-05-01T16:22:15 IST" name="API Tests" finished-at="2025-05-01T16:22:18 IST" duration-ms="2892">
       <class name="com.reqres.tests.ReqresApiTests">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.reqres.tests.ReqresApiTests@12468a38]" started-at="2025-04-30T09:26:29 IST" name="setup" finished-at="2025-04-30T09:26:30 IST" duration-ms="660" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.reqres.tests.ReqresApiTests@9f116cc]" started-at="2025-05-01T16:22:15 IST" name="setup" finished-at="2025-05-01T16:22:15 IST" duration-ms="564" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.reqres.tests.ReqresApiTests@12468a38]" started-at="2025-04-30T09:26:29 IST" name="setup" finished-at="2025-04-30T09:26:30 IST" duration-ms="660" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.reqres.tests.ReqresApiTests@9f116cc]" started-at="2025-05-01T16:22:15 IST" name="setup" finished-at="2025-05-01T16:22:15 IST" duration-ms="563" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testGetUserFail()[pri:0, instance:com.reqres.tests.ReqresApiTests@12468a38]" started-at="2025-04-30T09:26:30 IST" name="testGetUserFail" finished-at="2025-04-30T09:26:32 IST" duration-ms="2283" status="FAIL">
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[API Error: Missing API key.. https://reqres.in/signup]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: API Error: Missing API key.. https://reqres.in/signup
-at com.reqres.services.ApiService.getUserObjectById(ApiService.java:60)
-at com.reqres.tests.ReqresApiTests.testGetUserFail(ReqresApiTests.java:35)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-at java.base/java.lang.Thread.run(Thread.java:1583)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
+        <test-method signature="testGetUserPass()[pri:0, instance:com.reqres.tests.ReqresApiTests@9f116cc]" started-at="2025-05-01T16:22:15 IST" name="testGetUserPass" finished-at="2025-05-01T16:22:17 IST" duration-ms="1966" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testGetUserFail -->
-        <test-method signature="testGetUserPass()[pri:0, instance:com.reqres.tests.ReqresApiTests@12468a38]" started-at="2025-04-30T09:26:30 IST" name="testGetUserPass" finished-at="2025-04-30T09:26:32 IST" duration-ms="2078" status="FAIL">
+        </test-method> <!-- testGetUserPass -->
+        <test-method signature="testGetUserFail()[pri:0, instance:com.reqres.tests.ReqresApiTests@9f116cc]" started-at="2025-05-01T16:22:15 IST" name="testGetUserFail" finished-at="2025-05-01T16:22:18 IST" duration-ms="2279" status="FAIL">
           <exception class="com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException">
             <message>
-              <![CDATA[Unrecognized field "avatar" (class com.reqres.models.UserData), not marked as ignorable (4 known properties: "first_name", "id", "email", "last_name"])
- at [Source: (String)"{"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}}"; line: 1, column: 102] (through reference chain: com.reqres.models.User["data"]->com.reqres.models.UserData["avatar"])]]>
+              <![CDATA[Unrecognized field "error" (class com.reqres.models.User), not marked as ignorable (2 known properties: "data", "support"])
+ at [Source: (String)"{"error":"Missing API key.","how_to_get_one":"https://reqres.in/signup"}"; line: 1, column: 11] (through reference chain: com.reqres.models.User["error"])]]>
             </message>
             <full-stacktrace>
-              <![CDATA[com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "avatar" (class com.reqres.models.UserData), not marked as ignorable (4 known properties: "first_name", "id", "email", "last_name"])
- at [Source: (String)"{"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}}"; line: 1, column: 102] (through reference chain: com.reqres.models.User["data"]->com.reqres.models.UserData["avatar"])
+              <![CDATA[com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "error" (class com.reqres.models.User), not marked as ignorable (2 known properties: "data", "support"])
+ at [Source: (String)"{"error":"Missing API key.","how_to_get_one":"https://reqres.in/signup"}"; line: 1, column: 11] (through reference chain: com.reqres.models.User["error"])
 at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
 at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1138)
 at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:2224)
@@ -59,15 +35,12 @@ at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProper
 at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1687)
 at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:320)
 at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
-at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
-at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:314)
-at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
 at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
 at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4825)
 at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3772)
 at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3740)
 at com.reqres.services.ApiService.getUserObjectById(ApiService.java:57)
-at com.reqres.tests.ReqresApiTests.testGetUserPass(ReqresApiTests.java:21)
+at com.reqres.tests.ReqresApiTests.testGetUserFail(ReqresApiTests.java:34)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -86,12 +59,12 @@ at java.base/java.lang.Thread.run(Thread.java:1583)
           </exception> <!-- com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testGetUserPass -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.reqres.tests.ReqresApiTests@12468a38]" started-at="2025-04-30T09:26:32 IST" name="tearDown" finished-at="2025-04-30T09:26:32 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- testGetUserFail -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.reqres.tests.ReqresApiTests@9f116cc]" started-at="2025-05-01T16:22:17 IST" name="tearDown" finished-at="2025-05-01T16:22:17 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.reqres.tests.ReqresApiTests@12468a38]" started-at="2025-04-30T09:26:32 IST" name="tearDown" finished-at="2025-04-30T09:26:32 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.reqres.tests.ReqresApiTests@9f116cc]" started-at="2025-05-01T16:22:18 IST" name="tearDown" finished-at="2025-05-01T16:22:18 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

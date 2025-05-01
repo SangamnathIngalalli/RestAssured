@@ -56,10 +56,6 @@ public class ApiService {
         Response response = getUserById(userId, spec);
         User user = JsonUtils.getObjectMapper().readValue(response.asString(), User.class);
         
-        if (user.hasError()) {
-            throw new RuntimeException("API Error: " + user.getError() + ". " + user.getHowToGetOne());
-        }
-        
         return user;
     }
 } 
