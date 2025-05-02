@@ -1,0 +1,1 @@
+{"uuid":"fa3f6f07-064d-4fcc-b444-d28a2de63b0a","name":"com.reqres.tests.BaseTest.setup","children":["091d29f8-2646-405b-8ad3-367ccffb7ef3"],"description":"","befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1746099698532,"stop":1746099699535}],"afters":[],"start":1746099698531,"stop":1746099699537}

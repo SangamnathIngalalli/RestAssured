@@ -1,0 +1,7 @@
+cd C:\Users\Administrator\Desktop\Project\004_AllureReport
+
+
+mvn test "-DsuiteXmlFile=testng.xml"
+
+
+.\.allure\allure-2.24.0\bin\allure.bat serve allure-results
