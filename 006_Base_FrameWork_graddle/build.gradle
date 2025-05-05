@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'io.freefair.lombok' version '8.4'
+}
+
+group = 'com.reqres'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = '21'
+targetCompatibility = '21'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Rest Assured
+    testImplementation 'io.rest-assured:rest-assured:5.3.0'
+    
+    // TestNG
+    testImplementation 'org.testng:testng:7.7.1'
+    
+    // Jackson for JSON processing
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.0'
+    
+    // JSON Schema Validator
+    implementation 'com.networknt:json-schema-validator:1.0.85'
+    
+    // JSON
+    implementation 'org.json:json:20231013'
+    
+    // Lombok for reducing boilerplate code
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+}
+
+test {
+    useTestNG() {
+        suites 'testng.xml'
+    }
+}

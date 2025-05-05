@@ -20,6 +20,13 @@
     </properties>
 
     <dependencies>
+        <!-- Allure PDF -->
+        <dependency>
+            <groupId>io.github.eroshenkoam</groupId>
+            <artifactId>allure-pdf</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        
         <!-- Rest Assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -65,13 +72,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Allure TestNG -->
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>${allure.version}</version>
-            <scope>test</scope>
-        </dependency>
+
 
         <!-- Allure Rest Assured -->
         <dependency>

@@ -1,0 +1,4 @@
+<properties>
+    <testng.version>7.8.0</testng.version>
+    <allure.version>2.25.0</allure.version>
+</properties>
