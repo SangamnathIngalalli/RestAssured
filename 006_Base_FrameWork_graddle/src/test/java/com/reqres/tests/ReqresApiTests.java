@@ -5,13 +5,24 @@ import org.testng.annotations.Test;
 import com.reqres.models.User;
 import com.reqres.services.ApiService;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 
+@Epic("Reqres API Testing")
+@Feature("User Management")
 public class ReqresApiTests extends BaseTest {
 
 	private final ApiService apiService = ApiService.getInstance();
 
 	@Test
+	@Story("Get User by ID")
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("Test to verify that a user can be successfully retrieved by ID")
 	public void testGetUserPass() throws Exception {
 		Response response = apiService.getUserById(2, getRequestSpec());
 
@@ -28,6 +39,9 @@ public class ReqresApiTests extends BaseTest {
 	}
 
 	@Test
+	@Story("Get User by ID - Negative Test")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Test to verify system behavior when retrieving a non-existent user")
 	public void testGetUserFail() throws Exception {
 		Response response = apiService.getUserById(2, getRequestSpec());
 		getSoftAssert().assertEquals(response.getStatusCode(), 2000, "Status code should be 200");

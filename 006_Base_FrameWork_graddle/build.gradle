@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'eclipse'
     id 'io.freefair.lombok' version '8.4'
+    id 'io.qameta.allure' version '2.11.2'
 }
 
 group = 'com.reqres'
@@ -11,6 +12,18 @@ targetCompatibility = '21'
 
 repositories {
     mavenCentral()
+}
+
+allure {
+    version = '2.24.0'
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            testng {
+                enabled = true
+            }
+        }
+    }
 }
 
 dependencies {
@@ -33,13 +46,17 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.30'
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
     
-    // SLF4J Implementation (add these lines)
+    // SLF4J Implementation
     implementation 'org.slf4j:slf4j-api:2.0.9'
     implementation 'org.slf4j:slf4j-simple:2.0.9'
+    
+    // Allure TestNG
+    testImplementation 'io.qameta.allure:allure-testng:2.24.0'
 }
 
 test {
     useTestNG() {
         suites 'testng.xml'
     }
+    systemProperty 'allure.results.directory', 'build/allure-results'
 }
