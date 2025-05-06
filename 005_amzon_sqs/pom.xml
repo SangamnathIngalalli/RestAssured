@@ -86,7 +86,7 @@
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>sqs</artifactId>
             <version>2.31.33</version>
- <!-- Use the latest appropriate version -->
+            <!-- Use the latest appropriate version -->
         </dependency>
     </dependencies>
 

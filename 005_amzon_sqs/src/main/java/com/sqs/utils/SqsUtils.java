@@ -1,5 +1,7 @@
 package com.sqs.utils;
 
+import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sqs.SqsClient;
 import software.amazon.awssdk.services.sqs.model.*;
@@ -12,13 +14,18 @@ public class SqsUtils {
     private String queueUrl;
 
     // Constructor - Initialize SQS client and queue URL
-    // AWS Credentials should be configured securely (e.g., environment variables, IAM role)
+    // AWS Credentials are configured using gimme-aws-creds
     public SqsUtils(String queueUrl, Region region) {
         this.queueUrl = queueUrl;
-        // Ensure your AWS credentials are configured (e.g., environment variables, default profile)
+        // Use credentials from the profile created by gimme-aws-creds
+        AwsCredentialsProvider credentialsProvider = ProfileCredentialsProvider.builder()
+                .profileName(System.getProperty("aws.profile", "default"))
+                .build();
+                
         this.sqsClient = SqsClient.builder()
-                                  .region(region)
-                                  .build();
+                          .region(region)
+                          .credentialsProvider(credentialsProvider)
+                          .build();
     }
 
     // Method to send a JSON message
