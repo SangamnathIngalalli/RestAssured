@@ -1,0 +1,38 @@
+ 1. Clean and Build the Project
+		.\gradlew clean build --refresh-dependencies
+				The --refresh-dependencies flag ensures that Gradle downloads any new dependencies you've added.
+
+
+
+3. run this specific test with:
+		.\gradlew test --tests "com.reqres.tests.LoggingTest"
+
+
+
+4. Check the Test Reports
+		start .\build\reports\tests\test\index.html
+
+
+5. Run a Single Test Class
+		.\gradlew test --tests "com.reqres.tests.ReqresApiTests"
+
+
+
+6. allure Report 
+	./gradlew allureServe
+			- Process the test results from your build/allure-results directory
+			- Generate the HTML report in a temporary location
+			- Start a local web server
+			- Open the report in your default browser
+
+
+
+SLF4J Configuration
+
+1. Run Tests with Detailed Logging
+		.\gradlew test --info
+				The --info flag increases the logging level, which can help you verify that SLF4J is working.
+
+
+2. Note on SLF4J Configuration
+		.\gradlew test -Dorg.slf4j.simpleLogger.defaultLogLevel=DEBUG
