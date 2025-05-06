@@ -29,9 +29,11 @@ public class ReqresApiTests extends BaseTest {
 
 	@Test
 	public void testGetUserFail() throws Exception {
-		Response response = apiService.getUserById(-1, getRequestSpec());
-		getSoftAssert().assertEquals(response.getStatusCode(), 200, "Status code should be 200");
-		apiService.getUserObjectById(-1, getRequestSpec());
+		Response response = apiService.getUserById(2, getRequestSpec());
+		getSoftAssert().assertEquals(response.getStatusCode(), 2000, "Status code should be 200");
+		apiService.getUserObjectById(2, getRequestSpec());
+
+		assertAll();
 	}
 
 }
