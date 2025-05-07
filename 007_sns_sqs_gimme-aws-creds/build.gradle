@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // RestAssured for API testing
+    implementation 'io.rest-assured:rest-assured:5.3.1'
+    implementation 'io.rest-assured:json-path:5.3.1'
+    
+    // AWS SDK for SNS and SQS
+    implementation 'com.amazonaws:aws-java-sdk-sns:1.12.529'
+    implementation 'com.amazonaws:aws-java-sdk-sqs:1.12.529'
+    
+    // JSON processing
+    implementation 'org.json:json:20230618'
+    
+    // Testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+}
+
+test {
+    useJUnitPlatform()
+}
