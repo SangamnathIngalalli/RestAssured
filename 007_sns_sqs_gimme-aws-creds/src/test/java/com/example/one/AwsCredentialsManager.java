@@ -1,4 +1,4 @@
-package com.example.separate;
+package com.example.one;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
