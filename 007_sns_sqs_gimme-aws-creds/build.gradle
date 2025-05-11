@@ -31,6 +31,15 @@ dependencies {
     testImplementation 'org.testng:testng:7.10.2' // Use the latest version
     testImplementation 'org.slf4j:slf4j-simple:2.0.13' // Use the latest version
     testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.17.1' // Use the latest version
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    
+    // Jackson for JSON processing
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.1'
+
+
 }
 
 // Default test configuration using JUnit
