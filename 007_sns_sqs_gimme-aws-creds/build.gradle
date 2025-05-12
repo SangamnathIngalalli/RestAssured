@@ -6,14 +6,13 @@ group 'com.example'
 version '1.0-SNAPSHOT'
 
 repositories {
-    mavenCentral()
+     mavenCentral()
+     maven { url "https://plugins.gradle.org/m2/" }
 }
 
 dependencies {
-    // RestAssured for API testing
-    implementation 'io.rest-assured:rest-assured:5.3.1'
-    implementation 'io.rest-assured:json-path:5.3.1'
-    
+
+
     // AWS SDK for SNS and SQS
     implementation 'com.amazonaws:aws-java-sdk-sns:1.12.529'
     implementation 'com.amazonaws:aws-java-sdk-sqs:1.12.529'
@@ -21,10 +20,6 @@ dependencies {
     // JSON processing
     implementation 'org.json:json:20230618'
     
-    // Testing with JUnit
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
-    testImplementation 'org.assertj:assertj-core:3.24.2'
     
     // TestNG and RestAssured for package 'two'
     testImplementation 'io.rest-assured:rest-assured:5.4.0' // Use the latest version
@@ -32,16 +27,24 @@ dependencies {
     testImplementation 'org.slf4j:slf4j-simple:2.0.13' // Use the latest version
     testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.17.1' // Use the latest version
 
-    // Lombok
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.38'
+
+
     
     // Jackson for JSON processing
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.1'
 
+    // Lombok for main and test
+    compileOnly 'org.projectlombok:lombok:1.18.38'
+    annotationProcessor 'org.projectlombok:lombok:1.18.38'
+    testCompileOnly 'org.projectlombok:lombok:1.18.38'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.38'
+
 
 }
-
+    
 // Default test configuration using JUnit
 test {
     useJUnitPlatform()

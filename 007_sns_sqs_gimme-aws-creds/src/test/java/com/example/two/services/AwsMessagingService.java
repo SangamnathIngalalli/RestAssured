@@ -5,8 +5,12 @@ import com.amazonaws.regions.Regions;
 import com.example.one.SnsMessageSender;
 import com.example.one.SqsMessageReceiver;
 import com.example.two.utils.AwsCredentialsUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.util.UUID;
+
+import org.json.JSONObject;
 
 /**
  * Service class for AWS SNS/SQS messaging operations
@@ -172,7 +176,7 @@ public class AwsMessagingService {
      * @param userProfile The UserProfile object to send
      * @return The message ID for later verification
      */
-    public String sendUserProfileMessage(com.example.model.UserProfile userProfile) {
+    public String sendUserProfileMessage(com.example.two.model.UserProfile userProfile) {
         try {
             // Convert the UserProfile object to JSON
             ObjectMapper objectMapper = new ObjectMapper();

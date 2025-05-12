@@ -3,6 +3,8 @@ package com.example.two.tests;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.regions.Regions;
 import com.example.two.base.BaseTest;
+import com.example.two.model.Address;
+import com.example.two.model.UserProfile;
 import com.example.two.services.AwsMessagingService;
 import com.example.two.utils.AwsCredentialsUtil;
 
@@ -80,7 +82,7 @@ public class AwsMessagingTest extends BaseTest {
         System.out.println("Executing testSendUserProfileMessage on thread: " + Thread.currentThread().getId());
         
         // Create a UserProfile object
-        UserProfile.Address address = UserProfile.Address.builder()
+        Address address = com.example.two.model.Address.builder()
                 .street("123 Main St")
                 .city("Springfield")
                 .zipCode("12345")
