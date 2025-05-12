@@ -16,9 +16,6 @@ import org.json.JSONObject;
 import org.testng.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import static org.junit.jupiter.api.Assertions.assertAll;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

@@ -6,9 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * User profile model class for AWS messaging
- */
+
 @Data
 @Builder
 @NoArgsConstructor
