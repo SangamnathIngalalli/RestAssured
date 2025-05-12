@@ -2,6 +2,7 @@ package com.example.three.services;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicSessionCredentials; // Added import
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.AmazonSNSClientBuilder;
@@ -29,27 +30,38 @@ public class MessagingService {
     private final Regions region;
     private AmazonSNS snsClient;
     private AmazonSQS sqsClient;
+    private final String awsAccessKey; // Added field
+    private final String awsSecretKey; // Added field
+    private final String awsSessionToken; // Added field
     
     /**
-     * Creates a new MessagingService with the specified AWS resource identifiers
+     * Creates a new MessagingService with the specified AWS resource identifiers and session credentials
      * 
      * @param snsTopicArn ARN of the SNS topic to publish to
      * @param sqsQueueUrl URL of the SQS queue to receive messages from
      * @param region AWS region where the resources are located
+     * @param awsAccessKey AWS Access Key ID
+     * @param awsSecretKey AWS Secret Access Key
+     * @param awsSessionToken AWS Session Token
      */
-    public MessagingService(String snsTopicArn, String sqsQueueUrl, Regions region) {
+    public MessagingService(String snsTopicArn, String sqsQueueUrl, Regions region, 
+                            String awsAccessKey, String awsSecretKey, String awsSessionToken) {
         this.snsTopicArn = snsTopicArn;
         this.sqsQueueUrl = sqsQueueUrl;
         this.region = region;
+        this.awsAccessKey = awsAccessKey; // Initialize field
+        this.awsSecretKey = awsSecretKey; // Initialize field
+        this.awsSessionToken = awsSessionToken; // Initialize field
     }
     
     /**
      * Initializes the SNS and SQS clients with AWS credentials
      * 
-     * @throws IOException if the credentials cannot be loaded
+     * @throws IOException if the credentials cannot be loaded (though now direct)
      */
     public void initialize() throws IOException {
-        AWSCredentials credentials = AwsCredentialService.getGimmeAwsCredentials();
+        // Use BasicSessionCredentials with the provided keys and token
+        AWSCredentials credentials = new BasicSessionCredentials(awsAccessKey, awsSecretKey, awsSessionToken);
         
         // Initialize SNS client
         this.snsClient = AmazonSNSClientBuilder.standard()

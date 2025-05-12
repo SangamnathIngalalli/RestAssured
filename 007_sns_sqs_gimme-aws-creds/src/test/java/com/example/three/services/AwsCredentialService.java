@@ -2,6 +2,7 @@ package com.example.three.services;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.BasicSessionCredentials; // Import BasicSessionCredentials
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,10 +16,10 @@ import java.util.Properties;
 public class AwsCredentialService {
     
     /**
-     * Loads AWS credentials from the ~/.aws/credentials file
+     * Loads AWS credentials (including session token) from the ~/.aws/credentials file
      * 
-     * @return AWSCredentials object containing the access key and secret key
-     * @throws IOException if the credentials file cannot be read
+     * @return AWSCredentials object (specifically BasicSessionCredentials if a session token is present)
+     * @throws IOException if the credentials file cannot be read or required fields are missing
      */
     public static AWSCredentials getGimmeAwsCredentials() throws IOException {
         // Get the user's home directory
@@ -59,18 +60,27 @@ public class AwsCredentialService {
             }
         }
         
-        // Extract the access key and secret key
+        // Extract the access key, secret key, and session token
         String accessKey = properties.getProperty("aws_access_key_id");
         String secretKey = properties.getProperty("aws_secret_access_key");
+        String sessionToken = properties.getProperty("aws_session_token"); // Get session token
         
         if (accessKey == null || secretKey == null) {
-            throw new IOException("AWS credentials not found in the credentials file");
+            throw new IOException("AWS access key or secret key not found in the credentials file");
         }
         
         System.out.println("AWS credentials loaded successfully");
         System.out.println("Access Key ID: " + maskString(accessKey));
         
-        return new BasicAWSCredentials(accessKey, secretKey);
+        // If a session token is present, use BasicSessionCredentials
+        if (sessionToken != null && !sessionToken.isEmpty()) {
+            System.out.println("Session Token: Present (masked)");
+            return new BasicSessionCredentials(accessKey, secretKey, sessionToken);
+        } else {
+            // Fallback to BasicAWSCredentials if no session token (though gimme-aws-creds usually provides one)
+            System.out.println("Session Token: Not found, using basic credentials");
+            return new BasicAWSCredentials(accessKey, secretKey);
+        }
     }
     
     /**
