@@ -1,0 +1,22 @@
+AWS Credentials Security:
+
+		Avoid hardcoding credentials in the class. Instead:
+
+
+
+
+Fetch from environment variables (System.getenv("AWS_ACCESS_KEY_ID")).
+
+		Use AWS SDK's default credential chain (e.g., DefaultCredentialsProvider).
+		For temporary credentials (like STS), include awsSessionToken.
+
+Dependency Injection:
+		If using Spring/Kotlin, consider @Value or @ConfigurationProperties to inject these values.
+
+
+Testing:
+		Mock these dependencies in unit tests (e.g., with localstack for AWS services).
+
+
+Optional Fields:
+		If some fields are optional (e.g., awsSessionToken), overload the constructor or use the Builder pattern.

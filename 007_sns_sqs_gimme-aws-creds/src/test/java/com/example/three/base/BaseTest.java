@@ -1,22 +1,43 @@
 package com.example.three.base;
 
-import io.restassured.RestAssured;
-import org.testng.annotations.BeforeClass;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.specification.RequestSpecification;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.asserts.SoftAssert;
 
 /**
  * Base test class for all API tests
  */
-public class BaseTest {
-    
-    @BeforeClass
-    public void setup() {
-        // Basic RestAssured configuration
-        RestAssured.baseURI = "https://api.example.com"; // Replace with your actual API base URL
-        RestAssured.basePath = "/api";
-        
-        // Log request and response details for debugging
-        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-        
-        System.out.println("BaseTest setup complete");
-    }
+public abstract class BaseTest {
+
+	private static final ThreadLocal<RequestSpecification> requestSpecThreadLocal = new ThreadLocal<>();
+	private static final ThreadLocal<SoftAssert> softAssertThreadLocal = new ThreadLocal<>();
+
+	protected SoftAssert getSoftAssert() {
+		return softAssertThreadLocal.get();
+	}
+
+	protected void assertAll() {
+		getSoftAssert().assertAll();
+	}
+
+	protected RequestSpecification getRequestSpec() {
+		return requestSpecThreadLocal.get();
+	}
+
+	@BeforeMethod // Runs before EVERY test method
+	public void setup() {
+		softAssertThreadLocal.set(new SoftAssert());
+		RequestSpecBuilder builder = new RequestSpecBuilder();
+		requestSpecThreadLocal.set(builder.build());
+	}
+
+	@AfterMethod // Runs after EVERY test method (cleans up ThreadLocal)
+	public void tearDown() {
+		requestSpecThreadLocal.remove();
+		softAssertThreadLocal.remove();
+	}
 }
