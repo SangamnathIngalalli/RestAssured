@@ -2,6 +2,7 @@ package com.example.one;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.regions.Regions;
+import com.example.one.service.ReqresApiService;
 
 import java.io.IOException;
 
@@ -44,6 +45,17 @@ public class AwsMessagingExample {
             
             if (messageFound) {
                 System.out.println("Successfully verified message in SQS queue");
+                
+                // Step 4: Call Reqres API to check if the message exists
+                System.out.println("Checking message in Reqres API...");
+                ReqresApiService apiService = new ReqresApiService();
+                boolean apiMessageFound = apiService.checkMessageExists(messageId);
+                
+                if (apiMessageFound) {
+                    System.out.println("Successfully verified message in Reqres API");
+                } else {
+                    System.out.println("Failed to find message in Reqres API");
+                }
             } else {
                 System.out.println("Failed to find message in SQS queue");
             }
@@ -52,6 +64,9 @@ public class AwsMessagingExample {
             System.err.println("Error loading AWS credentials: " + e.getMessage());
         } catch (InterruptedException e) {
             System.err.println("Operation interrupted: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Unexpected error: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

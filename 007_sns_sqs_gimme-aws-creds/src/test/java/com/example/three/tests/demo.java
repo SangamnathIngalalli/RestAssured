@@ -1,4 +1,4 @@
-package com.example.one;
+package com.example.three.tests;
 
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
